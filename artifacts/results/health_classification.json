@@ -1,0 +1,39 @@
+{
+  "categories": [
+    "Healthy",
+    "Moderate",
+    "Degraded",
+    "Below EOL"
+  ],
+  "confusion_matrix": [
+    [
+      28,
+      2,
+      0,
+      0
+    ],
+    [
+      2,
+      22,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      43,
+      4
+    ],
+    [
+      0,
+      0,
+      0,
+      59
+    ]
+  ],
+  "eol_auc": 0.9989931196509482,
+  "eol_average_precision": 0.9982298301829242,
+  "n_test": 160,
+  "positive_eol_samples": 59,
+  "interpretation": "Derived measured-capacity categories; no fault labels or calibrated classification probabilities."
+}

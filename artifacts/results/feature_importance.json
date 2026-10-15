@@ -1,0 +1,37 @@
+{
+  "features": [
+    "cycle",
+    "lag_capacity_ah",
+    "rolling_capacity_mean",
+    "rolling_capacity_std",
+    "capacity_change",
+    "lag_voltage_mean",
+    "lag_voltage_min",
+    "lag_voltage_max",
+    "lag_voltage_std",
+    "lag_current_mean",
+    "lag_current_std",
+    "lag_temperature_mean",
+    "lag_temperature_max",
+    "lag_temperature_std",
+    "lag_discharge_duration"
+  ],
+  "importance": [
+    0.1736806365659758,
+    5.340357303884415,
+    4.3754839803182985,
+    0.01317798973361343,
+    0.012057205669593044,
+    0.023828156687852462,
+    0.006431458698135849,
+    0.029379122779570416,
+    0.0342826618930103,
+    0.18602610399558706,
+    0.21887097127780794,
+    0.006483129060928924,
+    0.00859562270085557,
+    0.021742434420294065,
+    0.06833072872244417
+  ],
+  "explained_model": "Random Forest"
+}

@@ -1,0 +1,8 @@
+services:
+  batterytwin:
+    build: .
+    ports:
+      - "${BATTERYTWIN_HOST_PORT:-8501}:7860"
+    environment:
+      PORT: "7860"
+    restart: unless-stopped

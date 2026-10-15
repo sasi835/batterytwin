@@ -1,0 +1,15 @@
+{
+  "xgboost": {
+    "n_estimators": 160,
+    "max_depth": 2,
+    "learning_rate": 0.0680250643581967,
+    "subsample": 0.7096834432905521
+  },
+  "lstm": {
+    "hidden_size": 64,
+    "layers": 2,
+    "dropout": 0.10308477766956904,
+    "learning_rate": 0.0014595006988277208,
+    "batch_size": 64
+  }
+}

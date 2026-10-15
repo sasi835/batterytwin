@@ -1,0 +1,19 @@
+{
+  "repo_id": "sasi468896/aml_cat",
+  "repository_url": "https://huggingface.co/spaces/sasi468896/aml_cat",
+  "commit": "ab5ba052e5779c10652fb32747324213a5895f23",
+  "commit_url": "https://huggingface.co/spaces/sasi468896/aml_cat/commit/ab5ba052e5779c10652fb32747324213a5895f23",
+  "sdk": "docker",
+  "runtime_stage": "CONFIG_ERROR",
+  "publication": "Uploaded successfully; runtime blocked by incompatible ZeroGPU hardware and account plan restriction",
+  "file_count": 109,
+  "attempt_date": "2026-10-15",
+  "active_account": "sasi468896",
+  "runtime_error": "ZeroGPU is only available on Gradio SDK",
+  "hardware_requested": "zero-a10g",
+  "cpu_basic_request_status": 402,
+  "cpu_basic_request_error": "Without a PRO subscription, you cannot downgrade this Space to cpu-basic",
+  "live_verified": false,
+  "required_action": "Owner must resolve Hugging Face plan eligibility for CPU Basic, then select CPU Basic and verify the Docker build",
+  "policy_source": "https://huggingface.co/docs/hub/spaces-gpus"
+}

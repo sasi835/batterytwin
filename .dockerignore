@@ -1,0 +1,15 @@
+.venv
+**/node_modules
+frontend/dist
+data/raw
+.git
+.env
+tmp
+output/*
+!output/pdf/
+!output/pdf/**
+tests
+notebooks
+*.zip
+**/__pycache__
+.pytest_cache

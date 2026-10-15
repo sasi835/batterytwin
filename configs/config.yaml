@@ -1,0 +1,33 @@
+seed: 42
+dataset:
+  rated_capacity_ah: 2.0
+  eol_soh: 70.0
+  train_batteries: [B0005, B0007]
+  validation_batteries: [B0018]
+  test_batteries: [B0006]
+features:
+  rolling_window: 5
+training:
+  sequence_length: 8
+  epochs: 120
+  patience: 18
+  batch_size: 32
+  hidden_size: 32
+  layers: 1
+  dropout: 0.15
+  learning_rate: 0.003
+optuna:
+  tree_trials: 8
+  lstm_trials: 4
+health_thresholds:
+  healthy: 90
+  moderate: 80
+  degraded: 70
+anomaly:
+  warning_percentile: 90
+  anomalous_percentile: 97.5
+paths:
+  raw: data/raw
+  processed: data/processed
+  models: models
+  artifacts: artifacts

@@ -1,0 +1,26 @@
+{
+  "reference": "https://github.com/amirhossein-sadeghi2003/battery-health-forecasting-baselines",
+  "external_reported": {
+    "one_step_lag_linear_mae_fraction": 0.0078,
+    "one_step_lag_linear_rmse_fraction": 0.0105,
+    "protocol": "Chronological 70/30 within each of four batteries; SOH normalized by first capacity"
+  },
+  "local_adaptation": {
+    "protocol": "BatteryTwin battery-held-out split; SOH normalized by 2 Ah rated capacity; cycles 9-168",
+    "features": [
+      "cycle",
+      "previous_capacity",
+      "second_previous_capacity"
+    ],
+    "metrics": {
+      "mae": 0.6844778500245943,
+      "rmse": 1.1646387741917048,
+      "r2": 0.9901359355810623,
+      "mape": 0.8759173284580127
+    },
+    "training_seconds": 0.015643899998394772,
+    "inference_ms_per_row": 0.0047018749683047645,
+    "n_test": 160
+  },
+  "interpretation": "Source-reported numbers have a different split and target reference; no direct superiority claim. Local adaptation shares our test targets."
+}

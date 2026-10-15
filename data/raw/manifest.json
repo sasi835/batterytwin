@@ -1,0 +1,27 @@
+{
+  "dataset": "NASA PCoE Li-ion Battery Aging",
+  "revision": "5301bd7e469dc8a1320b55719629571f2c02b6fc",
+  "primary_source": "https://catalog.data.gov/dataset/li-ion-battery-aging-datasets",
+  "files": {
+    "B0005": {
+      "url": "https://raw.githubusercontent.com/changyeon99/Battery-Data-Set/5301bd7e469dc8a1320b55719629571f2c02b6fc/B0005.mat",
+      "sha256": "0eae4585baf3f200c09fe24c5ab884f1889679fc75206ca1aa19da704104f0b0",
+      "bytes": 15956874
+    },
+    "B0006": {
+      "url": "https://raw.githubusercontent.com/changyeon99/Battery-Data-Set/5301bd7e469dc8a1320b55719629571f2c02b6fc/B0006.mat",
+      "sha256": "fa818ab4db5db8ab21e910b6dd6c3e20d3761bb9672089e1a4de8f96074616c5",
+      "bytes": 16028159
+    },
+    "B0007": {
+      "url": "https://raw.githubusercontent.com/changyeon99/Battery-Data-Set/5301bd7e469dc8a1320b55719629571f2c02b6fc/B0007.mat",
+      "sha256": "d022afa086efaf54ab5b63f05220f5be178c8027e2fa8d68589db0e85a441a3b",
+      "bytes": 16049460
+    },
+    "B0018": {
+      "url": "https://raw.githubusercontent.com/changyeon99/Battery-Data-Set/5301bd7e469dc8a1320b55719629571f2c02b6fc/B0018.mat",
+      "sha256": "d1e6c923a43ea1c9666b3a90bbb521757a067fd60b4d17dbfaa49c50b179da69",
+      "bytes": 8502218
+    }
+  }
+}

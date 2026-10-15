@@ -1,0 +1,10 @@
+services:
+  batterytwin:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - "${BATTERYTWIN_HOST_PORT:-8000}:8000"
+    environment:
+      PORT: "8000"
+    restart: unless-stopped

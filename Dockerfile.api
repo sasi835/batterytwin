@@ -1,0 +1,25 @@
+FROM node:22-alpine AS dashboard
+WORKDIR /frontend
+COPY frontend/package*.json ./
+RUN npm ci
+COPY frontend/ ./
+RUN npm run build
+
+FROM python:3.12-slim
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PORT=8000 HOME=/home/battery
+WORKDIR /app
+RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 && rm -rf /var/lib/apt/lists/*
+COPY requirements-runtime.txt ./
+RUN pip install --no-cache-dir torch==2.14.1 --index-url https://download.pytorch.org/whl/cpu && pip install --no-cache-dir -r requirements-runtime.txt
+RUN useradd -m -u 1000 battery
+COPY --chown=battery:battery api/ api/
+COPY --chown=battery:battery src/ src/
+COPY --chown=battery:battery configs/ configs/
+COPY --chown=battery:battery models/ models/
+COPY --chown=battery:battery data/processed/ data/processed/
+COPY --chown=battery:battery artifacts/ artifacts/
+COPY --from=dashboard --chown=battery:battery /frontend/dist/ frontend/dist/
+USER battery
+EXPOSE 8000
+HEALTHCHECK --interval=30s --timeout=10s --start-period=90s CMD python -c "import os,urllib.request; urllib.request.urlopen('http://127.0.0.1:'+os.getenv('PORT','8000')+'/health')"
+CMD ["sh", "-c", "uvicorn api.main:app --host 0.0.0.0 --port ${PORT:-8000}"]

@@ -1,0 +1,67 @@
+{
+  "automated_tests": {
+    "tests": 37,
+    "failures": 0,
+    "errors": 0
+  },
+  "frontend_build": "passed",
+  "report_pages": 7,
+  "report_visual_review": "All seven rendered pages inspected; no clipping or layout defects",
+  "local_api": "Updated saved-model API and dashboard verified at http://127.0.0.1:8000",
+  "docker": "Built and executed successfully in AWS CodeBuild; saved-model inference and Streamlit HTTP health checks passed. Image pushed to private ECR; ECS task RUNNING and HEALTHY.",
+  "public_cloud": "AWS ECS Fargate verified at http://3.238.69.149:7860 on 2026-10-15T01:53:03.130170+00:00; dashboard and edited-capacity prediction checked in browser",
+  "public_repository": "Not published; no target provided",
+  "plots": 25,
+  "browser_checks": [
+    "Desktop dashboard at 1440x1000",
+    "Mobile layout at 390x844",
+    "Capacity edit changed SOH prediction from 81.5% to 74.4%",
+    "External baseline metric displayed correctly",
+    "New navigation and discharge curve verified at mobile viewport",
+    "Desktop charge tracking and requirements page at 1440x1000",
+    "Partial discharge inference returned 45.9% forest and 44.2% GRU; complete discharge returned 0%",
+    "Two cycles/day translated 54.1 predicted remaining cycles into 27 days",
+    "Gaussian RUL range and 26.25% held-out coverage caveat displayed",
+    "Requirements page displays implemented evidence and pending Docker/cloud/identity items",
+    "No browser console errors during updated-view verification",
+    "Streamlit dashboard loaded locally with B0006 measured/forecast SOH 81.5% and 54 remaining cycles",
+    "AWS dashboard loaded with B0006 cycle 60, forecast SOH 81.5% and 54 remaining cycles",
+    "AWS capacity form 1.60 Ah completed saved-model inference: next-cycle SOH 80.3%, remaining cycles 52"
+  ],
+  "notebook_code_execution": "All code cells in three notebooks executed successfully using the shared project environment",
+  "abstract_words": 153,
+  "reference_revision": "72fa7bff18b91b0b1c602c5cb3fadbbee51ef0a8",
+  "reference_extension_training": "Executed Gaussian RUL, charge Random Forest and charge GRU; real metrics saved",
+  "docker_deployment_attempt": {
+    "date": "2026-10-14",
+    "compose_config": "validated",
+    "deployment_helper_syntax": "validated",
+    "helper": "deploy-docker.ps1",
+    "default_host_port": 8001,
+    "failure": "Docker startup: initializing Ingest server; sailor-ingest.sock cannot be accessed by the system",
+    "recovery_attempts": [
+      "Started Docker Desktop outside sandbox",
+      "Stopped crashed Desktop backend",
+      "Targeted socket rename failed",
+      "Targeted temporary socket removal failed",
+      "Targeted reparse metadata repair failed"
+    ],
+    "next_step": "Restart Windows and ensure Docker Desktop Linux engine starts, then run ./deploy-docker.ps1",
+    "container_started": false,
+    "docker_data_reset": false
+  },
+  "streamlit": {
+    "views": 7,
+    "app_tests": 9,
+    "status": "Saved-model views and prediction forms passed AppTest",
+    "local_url": "http://127.0.0.1:8501",
+    "dependency_check": "pip check passed",
+    "docker_compose": "configuration validated; local Docker engine unavailable"
+  },
+  "deployment_guard_tests": {
+    "tests": 8,
+    "failures": 0,
+    "errors": 0
+  },
+  "aws_deployment_evidence": "artifacts/results/aws_ecr_deployment.json"
+}

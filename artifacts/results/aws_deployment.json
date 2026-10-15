@@ -1,0 +1,21 @@
+{
+  "service": "AWS Lightsail",
+  "region": "us-east-1",
+  "instance_name": "batterytwin-streamlit",
+  "status": "Unused Lightsail plan; current verified deployment uses ECR + ECS Fargate",
+  "resources_created": false,
+  "live_verified": false,
+  "docker_build_verified": false,
+  "configuration": "Ubuntu 24.04, 4 GB RAM, >=2 vCPUs, public IPv4, $24 monthly bundle cap",
+  "checks": {
+    "deployment_guard_tests_passed": 4,
+    "bootstrap_shell_syntax": "passed",
+    "pinned_runtime_source_files_verified": 109,
+    "pinned_dockerfile_matches": true
+  },
+  "source_repo": "sasi468896/aml_cat",
+  "source_revision": "ab5ba052e5779c10652fb32747324213a5895f23",
+  "required_action": "No Lightsail action required",
+  "pricing_source": "https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-bundles.html",
+  "current_deployment_evidence": "artifacts/results/aws_ecr_deployment.json"
+}

@@ -1,0 +1,68 @@
+{
+  "approach": "ECR + CodeBuild + ECS Fargate",
+  "region": "us-east-1",
+  "status": "Live application verified",
+  "resources_created": true,
+  "docker_build_verified": true,
+  "live_verified": true,
+  "source_repo": "sasi468896/aml_cat",
+  "source_revision": "ab5ba052e5779c10652fb32747324213a5895f23",
+  "configuration": {
+    "cpu": 0.5,
+    "memory_gb": 4,
+    "desired_tasks": 1,
+    "public_port": 7860
+  },
+  "estimated_monthly_compute_and_ipv4_usd": 31.4,
+  "additional_charges": [
+    "ECR storage",
+    "CodeBuild minutes",
+    "CloudWatch logs",
+    "outbound transfer",
+    "taxes"
+  ],
+  "deployment_guard_tests_passed": 8,
+  "account": "874708626735",
+  "build_stack": "batterytwin-build",
+  "build_id": "batterytwin:c35c975d-4116-420e-9e34-3111e66a75bc",
+  "repository_uri": "874708626735.dkr.ecr.us-east-1.amazonaws.com/batterytwin",
+  "build_status": "SUCCEEDED",
+  "build_logs": {
+    "groupName": "/aws/codebuild/batterytwin",
+    "streamName": "c35c975d-4116-420e-9e34-3111e66a75bc",
+    "deepLink": "https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#logsV2:log-groups/log-group/$252Faws$252Fcodebuild$252Fbatterytwin/log-events/c35c975d-4116-420e-9e34-3111e66a75bc",
+    "cloudWatchLogsArn": "arn:aws:logs:us-east-1:874708626735:log-group:/aws/codebuild/batterytwin:log-stream:c35c975d-4116-420e-9e34-3111e66a75bc",
+    "cloudWatchLogs": {
+      "status": "ENABLED",
+      "groupName": "/aws/codebuild/batterytwin"
+    }
+  },
+  "cost_approval": true,
+  "aws_templates_validated": true,
+  "app_stack": "batterytwin-app",
+  "image_uri": "874708626735.dkr.ecr.us-east-1.amazonaws.com/batterytwin@sha256:2b75fdbec47a0ed179f6982c629e7eeee3b0d7a85642d81bd1e1a5e596fe3530",
+  "container_inference": {
+    "forecast_cycle": 61,
+    "predicted_soh": 81.49053532464289,
+    "remaining_cycles": 54.08888888888889
+  },
+  "container_http_health_verified": true,
+  "task": "arn:aws:ecs:us-east-1:874708626735:task/batterytwin-app-Cluster-td8PiJHjw8xo/1fc87e219c4c4f68947902406eb25cd9",
+  "task_status": "RUNNING",
+  "health": "HEALTHY",
+  "url": "http://3.238.69.149:7860",
+  "verified_at_utc": "2026-10-15T01:53:03.130170+00:00",
+  "http_health_verified": true,
+  "browser_dashboard_verified": true,
+  "browser_prediction_verified": true,
+  "browser_prediction": {
+    "capacity_ah": 1.6,
+    "measured_soh_percent": 80.0,
+    "predicted_soh_percent_displayed": 80.3,
+    "remaining_cycles_displayed": 52
+  },
+  "screenshots": [
+    "artifacts/screenshots/aws-dashboard.png",
+    "artifacts/screenshots/aws-prediction.png"
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "B0005": {
+    "Voltage_measured": {
+      "type": "ndarray",
+      "shape": [
+        300
+      ]
+    },
+    "Current_measured": {
+      "type": "ndarray",
+      "shape": [
+        300
+      ]
+    },
+    "Temperature_measured": {
+      "type": "ndarray",
+      "shape": [
+        300
+      ]
+    },
+    "Current_load": {
+      "type": "ndarray",
+      "shape": [
+        300
+      ]
+    },
+    "Voltage_load": {
+      "type": "ndarray",
+      "shape": [
+        300
+      ]
+    },
+    "Time": {
+      "type": "ndarray",
+      "shape": [
+        300
+      ]
+    },
+    "Capacity": {
+      "type": "float",
+      "shape": []
+    }
+  },
+  "B0006": {
+    "Voltage_measured": {
+      "type": "ndarray",
+      "shape": [
+        300
+      ]
+    },
+    "Current_measured": {
+      "type": "ndarray",
+      "shape": [
+        300
+      ]
+    },
+    "Temperature_measured": {
+      "type": "ndarray",
+      "shape": [
+        300
+      ]
+    },
+    "Current_load": {
+      "type": "ndarray",
+      "shape": [
+        300
+      ]
+    },
+    "Voltage_load": {
+      "type": "ndarray",
+      "shape": [
+        300
+      ]
+    },
+    "Time": {
+      "type": "ndarray",
+      "shape": [
+        300
+      ]
+    },
+    "Capacity": {
+      "type": "float",
+      "shape": []
+    }
+  },
+  "B0007": {
+    "Voltage_measured": {
+      "type": "ndarray",
+      "shape": [
+        300
+      ]
+    },
+    "Current_measured": {
+      "type": "ndarray",
+      "shape": [
+        300
+      ]
+    },
+    "Temperature_measured": {
+      "type": "ndarray",
+      "shape": [
+        300
+      ]
+    },
+    "Current_load": {
+      "type": "ndarray",
+      "shape": [
+        300
+      ]
+    },
+    "Voltage_load": {
+      "type": "ndarray",
+      "shape": [
+        300
+      ]
+    },
+    "Time": {
+      "type": "ndarray",
+      "shape": [
+        300
+      ]
+    },
+    "Capacity": {
+      "type": "float",
+      "shape": []
+    }
+  },
+  "B0018": {
+    "Voltage_measured": {
+      "type": "ndarray",
+      "shape": [
+        200
+      ]
+    },
+    "Current_measured": {
+      "type": "ndarray",
+      "shape": [
+        200
+      ]
+    },
+    "Temperature_measured": {
+      "type": "ndarray",
+      "shape": [
+        200
+      ]
+    },
+    "Current_load": {
+      "type": "ndarray",
+      "shape": [
+        200
+      ]
+    },
+    "Voltage_load": {
+      "type": "ndarray",
+      "shape": [
+        200
+      ]
+    },
+    "Time": {
+      "type": "ndarray",
+      "shape": [
+        200
+      ]
+    },
+    "Capacity": {
+      "type": "float",
+      "shape": []
+    }
+  }
+}

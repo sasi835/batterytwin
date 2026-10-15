@@ -1,0 +1,19 @@
+{
+  "model": "RUL Gaussian Process",
+  "task": "rul",
+  "mae": 11.201408171000017,
+  "rmse": 13.171889491076426,
+  "r2": 0.8448821826606137,
+  "mape": 85.02558816442847,
+  "training_seconds": 0.6438498999999638,
+  "inference_ms_per_row": 0.060011249999547545,
+  "n_test": 160,
+  "predictive_range_90_test_coverage": 0.2625,
+  "range_method": "Mean +/- 1.644854 posterior predictive standard deviations, lower bound floored at zero",
+  "range_limitations": "Gaussian model-conditional range; empirical coverage from one correlated test battery. Not a calibrated fleet guarantee.",
+  "training_cells_with_observed_eol": [
+    "B0005"
+  ],
+  "reference": "https://github.com/ahmedmhb/AI-Based-Pedictive-Diagnosis-and-Lifetime-Optimization-for-EVs-Battery",
+  "revision": "72fa7bff18b91b0b1c602c5cb3fadbbee51ef0a8"
+}

@@ -1,0 +1,151 @@
+{
+  "scope": "Evidence inventory, not an award of marks. Public hosting and container execution are not claimed.",
+  "plot_count": 25,
+  "items": [
+    {
+      "requirement": "Specialized dataset and preprocessing",
+      "status": "Evidence present",
+      "evidence": [
+        "data/raw/manifest.json",
+        "artifacts/results/source_schema.json",
+        "artifacts/results/data_quality.json",
+        "src/data/feature_engineering.py"
+      ],
+      "missing": []
+    },
+    {
+      "requirement": "Dimensionality reduction",
+      "status": "Evidence present",
+      "evidence": [
+        "artifacts/results/pca.json",
+        "artifacts/plots/pca_projection.png"
+      ],
+      "missing": []
+    },
+    {
+      "requirement": "At least five advanced plots",
+      "status": "Evidence present",
+      "evidence": [
+        "artifacts/plots/shap_summary.png",
+        "artifacts/plots/pca_projection.png",
+        "artifacts/plots/training_loss.png",
+        "artifacts/plots/health_confusion_matrix.png",
+        "artifacts/plots/eol_precision_recall.png"
+      ],
+      "missing": []
+    },
+    {
+      "requirement": "Advanced models, tuning and tracking",
+      "status": "Evidence present",
+      "evidence": [
+        "models/xgboost.pkl",
+        "models/lstm_model.pt",
+        "models/gru_model.pt",
+        "artifacts/best_params.json",
+        "artifacts/logs/experiments.jsonl"
+      ],
+      "missing": []
+    },
+    {
+      "requirement": "External comparison and error analysis",
+      "status": "Evidence present",
+      "evidence": [
+        "artifacts/results/external_benchmark.json",
+        "artifacts/results/error_slices.csv",
+        "docs/REFERENCE_COMPARISON.md"
+      ],
+      "missing": []
+    },
+    {
+      "requirement": "Validated local inference and UI",
+      "status": "Evidence present",
+      "evidence": [
+        "api/main.py",
+        "api/schemas.py",
+        "frontend/dist/index.html",
+        "tests/test_api.py",
+        "tests/test_reference_extensions.py"
+      ],
+      "missing": []
+    },
+    {
+      "requirement": "Streamlit interface and Docker Space packaging",
+      "status": "Evidence present",
+      "evidence": [
+        "streamlit_app.py",
+        "tests/test_streamlit.py",
+        "requirements-streamlit.txt",
+        "scripts/prepare_space.py",
+        "scripts/publish_space.py"
+      ],
+      "missing": []
+    },
+    {
+      "requirement": "Reference GRU charge and Gaussian RUL adaptations",
+      "status": "Evidence present",
+      "evidence": [
+        "models/soc_gru.pt",
+        "models/rul_gpr.pkl",
+        "artifacts/results/soc_benchmark.json",
+        "artifacts/results/gaussian_rul.json"
+      ],
+      "missing": []
+    },
+    {
+      "requirement": "IEEE-style report, max 10 pages",
+      "status": "Evidence present",
+      "evidence": [
+        "output/pdf/BatteryTwin_IEEE_Report.pdf"
+      ],
+      "missing": []
+    },
+    {
+      "requirement": "Configuration and packaged source",
+      "status": "Evidence present",
+      "evidence": [
+        "requirements.txt",
+        "configs/config.yaml",
+        "Dockerfile",
+        "scripts/package_project.py"
+      ],
+      "missing": []
+    },
+    {
+      "requirement": "Docker execution",
+      "status": "Pending: engine unavailable",
+      "evidence": [
+        "Dockerfile",
+        "docker-compose.yml"
+      ],
+      "missing": [
+        "Successful image build and container health check"
+      ]
+    },
+    {
+      "requirement": "Public GitHub and cloud hosting",
+      "status": "Pending: Hugging Face write permission; GitHub target not supplied",
+      "evidence": [
+        "docs/DEPLOYMENT.md",
+        "artifacts/results/huggingface_deployment.json"
+      ],
+      "missing": [
+        "Verified public repository URL",
+        "Verified live application URL"
+      ]
+    },
+    {
+      "requirement": "Author and roll number",
+      "status": "Pending: student details required",
+      "evidence": [
+        "output/pdf/BatteryTwin_IEEE_Report.pdf"
+      ],
+      "missing": [
+        "Author identity for final submission"
+      ]
+    }
+  ],
+  "report_pages": 7,
+  "report_within_page_limit": true,
+  "abstract_words": 150,
+  "abstract_within_word_limit": true
+}

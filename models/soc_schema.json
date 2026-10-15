@@ -1,0 +1,40 @@
+{
+  "definition": "Relative discharge charge = clip(100*(1-integrated discharge Ah/measured cycle capacity),0,100)",
+  "source": "NASA measured V/I/T/time; no measured SOC ground truth. Initial charge assumed 100%.",
+  "evaluation_scope": "Models predict a derived coulomb-count proxy, not independently measured BMS SOC.",
+  "features": [
+    "voltage",
+    "current",
+    "temperature",
+    "time_seconds",
+    "discharged_ah"
+  ],
+  "sequence_length": 6,
+  "metrics": [
+    {
+      "model": "SOC Random Forest",
+      "task": "derived_charge",
+      "mae": 3.0214825343475766,
+      "rmse": 6.032984746031641,
+      "r2": 0.9402067738346768,
+      "mape": 14.330324577736395,
+      "n_test": 2748,
+      "training_seconds": 1.9123528000000078,
+      "inference_ms_per_row": 0.02841360989811541
+    },
+    {
+      "model": "SOC GRU",
+      "task": "derived_charge",
+      "mae": 3.9624927043914795,
+      "rmse": 5.000677635050312,
+      "r2": 0.958918571472168,
+      "mape": 18.857284545898438,
+      "n_test": 2748,
+      "training_seconds": 32.0143872000001,
+      "inference_ms_per_row": 0.005764446870414406
+    }
+  ],
+  "rows": 13271,
+  "reference": "https://github.com/ahmedmhb/AI-Based-Pedictive-Diagnosis-and-Lifetime-Optimization-for-EVs-Battery",
+  "revision": "72fa7bff18b91b0b1c602c5cb3fadbbee51ef0a8"
+}

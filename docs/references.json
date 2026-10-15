@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "ieee": "NASA, 'Li-ion Battery Aging Datasets,' NASA Open Data catalog, accessed Oct. 2, 2026.",
+    "url": "https://catalog.data.gov/dataset/li-ion-battery-aging-datasets",
+    "verified": "Dataset schema and 30% rated capacity fade criterion"
+  },
+  {
+    "id": 2,
+    "ieee": "T. Chen and C. Guestrin, 'XGBoost: A Scalable Tree Boosting System,' arXiv:1603.02754, 2016.",
+    "url": "https://arxiv.org/abs/1603.02754",
+    "doi": "10.48550/arXiv.1603.02754"
+  },
+  {
+    "id": 3,
+    "ieee": "S. Hochreiter and J. Schmidhuber, 'Long Short-Term Memory,' Neural Computation, vol. 9, no. 8, pp. 1735-1780, 1997.",
+    "url": "https://doi.org/10.1162/neco.1997.9.8.1735",
+    "doi": "10.1162/neco.1997.9.8.1735"
+  },
+  {
+    "id": 4,
+    "ieee": "S. M. Lundberg and S.-I. Lee, 'A Unified Approach to Interpreting Model Predictions,' arXiv:1705.07874, 2017.",
+    "url": "https://arxiv.org/abs/1705.07874",
+    "doi": "10.48550/arXiv.1705.07874"
+  },
+  {
+    "id": 5,
+    "ieee": "amirhossein-sadeghi2003, 'Battery Health Forecasting Baselines,' GitHub repository, accessed Oct. 2, 2026.",
+    "url": "https://github.com/amirhossein-sadeghi2003/battery-health-forecasting-baselines",
+    "verified": "One-step versus recursive evaluation, cycle + two lag baseline; source metrics have different split and normalization"
+  },
+  {
+    "id": 6,
+    "ieee": "ahmedmhb, 'AI-Based Predictive Diagnosis and Lifetime Optimization for EVs Battery,' GitHub repository, revision 72fa7bff18b91b0b1c602c5cb3fadbbee51ef0a8, accessed Oct. 13, 2026.",
+    "url": "https://github.com/ahmedmhb/AI-Based-Pedictive-Diagnosis-and-Lifetime-Optimization-for-EVs-Battery/tree/72fa7bff18b91b0b1c602c5cb3fadbbee51ef0a8",
+    "verified": "Inspected SOC/SOH GRUs, Gaussian RUL, vehicle split and differing EOL conventions; independently adapted without redistributing reference code."
+  }
+]

@@ -1,0 +1,139 @@
+{
+  "selected_model": "Random Forest",
+  "selection_rule": "Lowest tabular validation MAE; no test-based selection",
+  "features": [
+    "cycle",
+    "lag_capacity_ah",
+    "rolling_capacity_mean",
+    "rolling_capacity_std",
+    "capacity_change",
+    "lag_voltage_mean",
+    "lag_voltage_min",
+    "lag_voltage_max",
+    "lag_voltage_std",
+    "lag_current_mean",
+    "lag_current_std",
+    "lag_temperature_mean",
+    "lag_temperature_max",
+    "lag_temperature_std",
+    "lag_discharge_duration"
+  ],
+  "target": "Next discharge cycle SOH = measured capacity / 2.0 Ah * 100",
+  "sequence_length": 8,
+  "anomaly_thresholds": {
+    "warning": 0.5999968061834214,
+    "anomalous": 0.616560213311703
+  },
+  "eol_soh": 70.0,
+  "rated_capacity_ah": 2.0,
+  "config": {
+    "seed": 42,
+    "dataset": {
+      "rated_capacity_ah": 2.0,
+      "eol_soh": 70.0,
+      "train_batteries": [
+        "B0005",
+        "B0007"
+      ],
+      "validation_batteries": [
+        "B0018"
+      ],
+      "test_batteries": [
+        "B0006"
+      ]
+    },
+    "features": {
+      "rolling_window": 5
+    },
+    "training": {
+      "sequence_length": 8,
+      "epochs": 120,
+      "patience": 18,
+      "batch_size": 32,
+      "hidden_size": 32,
+      "layers": 1,
+      "dropout": 0.15,
+      "learning_rate": 0.003
+    },
+    "optuna": {
+      "tree_trials": 8,
+      "lstm_trials": 4
+    },
+    "health_thresholds": {
+      "healthy": 90,
+      "moderate": 80,
+      "degraded": 70
+    },
+    "anomaly": {
+      "warning_percentile": 90,
+      "anomalous_percentile": 97.5
+    },
+    "paths": {
+      "raw": "data/raw",
+      "processed": "data/processed",
+      "models": "models",
+      "artifacts": "artifacts"
+    }
+  },
+  "versions": {
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "torch": "2.14.1+cpu",
+    "xgboost": "3.4.1",
+    "shap": "0.52.0",
+    "optuna": "5.0.0",
+    "fastapi": "0.142.2"
+  },
+  "split": {
+    "rated_capacity_ah": 2.0,
+    "eol_soh": 70.0,
+    "train_batteries": [
+      "B0005",
+      "B0007"
+    ],
+    "validation_batteries": [
+      "B0018"
+    ],
+    "test_batteries": [
+      "B0006"
+    ]
+  },
+  "data_provenance": {
+    "dataset": "NASA PCoE Li-ion Battery Aging",
+    "revision": "5301bd7e469dc8a1320b55719629571f2c02b6fc",
+    "primary_source": "https://catalog.data.gov/dataset/li-ion-battery-aging-datasets",
+    "files": {
+      "B0005": {
+        "url": "https://raw.githubusercontent.com/changyeon99/Battery-Data-Set/5301bd7e469dc8a1320b55719629571f2c02b6fc/B0005.mat",
+        "sha256": "0eae4585baf3f200c09fe24c5ab884f1889679fc75206ca1aa19da704104f0b0",
+        "bytes": 15956874
+      },
+      "B0006": {
+        "url": "https://raw.githubusercontent.com/changyeon99/Battery-Data-Set/5301bd7e469dc8a1320b55719629571f2c02b6fc/B0006.mat",
+        "sha256": "fa818ab4db5db8ab21e910b6dd6c3e20d3761bb9672089e1a4de8f96074616c5",
+        "bytes": 16028159
+      },
+      "B0007": {
+        "url": "https://raw.githubusercontent.com/changyeon99/Battery-Data-Set/5301bd7e469dc8a1320b55719629571f2c02b6fc/B0007.mat",
+        "sha256": "d022afa086efaf54ab5b63f05220f5be178c8027e2fa8d68589db0e85a441a3b",
+        "bytes": 16049460
+      },
+      "B0018": {
+        "url": "https://raw.githubusercontent.com/changyeon99/Battery-Data-Set/5301bd7e469dc8a1320b55719629571f2c02b6fc/B0018.mat",
+        "sha256": "d1e6c923a43ea1c9666b3a90bbb521757a067fd60b4d17dbfaa49c50b179da69",
+        "bytes": 8502218
+      }
+    }
+  },
+  "limitations": [
+    "Four laboratory cells; no EV pack validation",
+    "No physical fault labels",
+    "RUL learns from only one training cell with observed EOL",
+    "No calibrated confidence interval",
+    "Repeated observations within each cell are correlated"
+  ]
+}

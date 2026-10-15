@@ -1,0 +1,71 @@
+{
+  "rows": 636,
+  "duplicates": 0,
+  "invalid": 0,
+  "missing_values": {
+    "battery_id": 0,
+    "cycle": 0,
+    "capacity_ah": 0,
+    "ambient_temperature": 0,
+    "voltage_mean": 0,
+    "voltage_min": 0,
+    "voltage_max": 0,
+    "voltage_std": 0,
+    "current_mean": 0,
+    "current_min": 0,
+    "current_max": 0,
+    "current_std": 0,
+    "temperature_mean": 0,
+    "temperature_min": 0,
+    "temperature_max": 0,
+    "temperature_std": 0,
+    "discharge_duration": 0
+  },
+  "outlier_policy": "IQR outliers are reported, retained because degradation is meaningful.",
+  "iqr_outliers": {
+    "cycle": 0,
+    "capacity_ah": 0,
+    "ambient_temperature": 0,
+    "voltage_mean": 0,
+    "voltage_min": 0,
+    "voltage_max": 6,
+    "voltage_std": 0,
+    "current_mean": 9,
+    "current_min": 0,
+    "current_max": 25,
+    "current_std": 0,
+    "temperature_mean": 0,
+    "temperature_min": 7,
+    "temperature_max": 0,
+    "temperature_std": 0,
+    "discharge_duration": 0
+  },
+  "batteries": {
+    "B0005": {
+      "cycles": 168,
+      "initial_capacity": 1.8564874208181574,
+      "last_capacity": 1.3250793286429356
+    },
+    "B0006": {
+      "cycles": 168,
+      "initial_capacity": 2.035337591005598,
+      "last_capacity": 1.1856752327929356
+    },
+    "B0007": {
+      "cycles": 168,
+      "initial_capacity": 1.89105229539079,
+      "last_capacity": 1.4324552720625434
+    },
+    "B0018": {
+      "cycles": 132,
+      "initial_capacity": 1.8550045207910817,
+      "last_capacity": 1.341051440640485
+    }
+  },
+  "eol_observed": {
+    "B0005": true,
+    "B0006": true,
+    "B0007": false,
+    "B0018": true
+  }
+}

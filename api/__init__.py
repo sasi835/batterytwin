@@ -1,0 +1,1 @@
+"""Inference-only FastAPI application."""
