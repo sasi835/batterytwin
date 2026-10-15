@@ -165,7 +165,7 @@ docker run --rm -p 8501:7860 batterytwin
 docker compose up --build
 ```
 
-See [deployment instructions](docs/DEPLOYMENT.md) for Docker, Hugging Face Spaces and AWS EC2. Docker files are provided; consult `artifacts/results/verification.json` for actual verification status. Public hosting is verified on [AWS ECS Fargate](http://3.238.69.149:7860) using the private ECR image. Hugging Face remains blocked by its hardware/plan restriction. A separate public GitHub repository has not been published.
+See [deployment instructions](docs/DEPLOYMENT.md) for Docker, Hugging Face Spaces and AWS EC2. Docker files are provided; consult `artifacts/results/verification.json` for actual verification status. Public hosting is verified on [AWS ECS Fargate](http://3.238.69.149:7860) using the private ECR image. Hugging Face remains blocked by its hardware/plan restriction. The project is pushed to the private [GitHub repository](https://github.com/sasi835/batterytwin) on main.
 
 ## Repository
 
@@ -211,3 +211,9 @@ The AWS launcher builds the Streamlit Docker image on an Ubuntu Lightsail server
 The requested AWS route now uses a private ECR image repository, CodeBuild for remote Docker build/inference checks, and ECS Fargate for Streamlit hosting. [Read the deployment guide](docs/AWS_ECR_DEPLOYMENT.md). Run `.venv/Scripts/python.exe scripts/deploy_ecr.py` to prepare reviewable local templates. Deployment costs are approved and both AWS templates passed server-side validation. Docker build, model inference and container health checks passed. The image is stored in private ECR and is running on [ECS Fargate](http://3.238.69.149:7860); the public dashboard and edited-capacity prediction were verified in the browser. The estimated running cost is $31.40/month for compute and public IPv4, plus storage, logs, builds, transfer and taxes. Eight deployment guard tests pass. The earlier Lightsail plan is an unused alternative.
 
 AWS deployment evidence: `artifacts/results/aws_ecr_deployment.json`. The public address is HTTP and may change when ECS replaces the task. The approved service continues to incur charges until stopped or deleted.
+
+## GitHub and Vercel
+
+Source: [sasi835/batterytwin](https://github.com/sasi835/batterytwin), private repository, main branch. The full Streamlit container is deployed and verified on [Vercel](https://batterytwin.vercel.app); see [Vercel instructions](docs/VERCEL_DEPLOYMENT.md). Automatic Git deployments are not connected because the Vercel integration cannot access the private GitHub repository. The current deployment uses the authenticated CLI. Credentials, raw downloads, temporary files and personal lab record PDFs are excluded from Git.
+
+Production Vercel URL: https://batterytwin.vercel.app — container build succeeded; public health, dashboard, WebSocket session and edited-capacity prediction verified. Deployment evidence: `artifacts/results/vercel_deployment.json`. The existing AWS service is separate and remains running.

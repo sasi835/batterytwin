@@ -56,3 +56,8 @@ See [AWS deployment](AWS_DEPLOYMENT.md). The prepared launcher uses the same Doc
 ## Verified AWS ECR and ECS deployment
 
 [Open BatteryTwin](http://3.238.69.149:7860). CodeBuild built and tested the Docker image, ECR stores it privately, and ECS runs a healthy Fargate task. Public HTTP health, dashboard and edited-capacity inference passed. See [the ECR/ECS guide](AWS_ECR_DEPLOYMENT.md) for configuration, evidence and cleanup.
+
+
+## Verified Vercel deployment
+
+[Open BatteryTwin](https://batterytwin.vercel.app). The complete Streamlit application runs in Vercel Container Runtime beta; it is not an AWS redirect. Public health, the dashboard and a capacity-edit prediction were verified. See [Vercel deployment](VERCEL_DEPLOYMENT.md).

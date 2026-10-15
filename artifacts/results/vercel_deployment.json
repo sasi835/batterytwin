@@ -1,0 +1,38 @@
+{
+  "project": "batterytwin",
+  "scope": "idc16",
+  "plan": "hobby",
+  "runtime": "Vercel Container Runtime beta",
+  "status": "READY; public dashboard and prediction verified",
+  "live_verified": true,
+  "verified_at_utc": "2026-10-15T06:19:40.927382+00:00",
+  "url": "https://batterytwin.vercel.app",
+  "deployment_url": "https://batterytwin-8hqwjzkcx-idc16.vercel.app",
+  "deployment_id": "dpl_FcXydmZWeSyQ9V126krvDfXvT2CB",
+  "source_repository": "https://github.com/sasi835/batterytwin",
+  "source_commit": "5b1923f5137db48209f70012987561f6b31d147a",
+  "image": "vcr.vercel.com/idc16/batterytwin/dockerfile@sha256:8fe4036b25719d173d04f2613a6cd0cfeb31cecf18708fd89dae3fc0fc90d27d",
+  "http_health": {
+    "status": 200,
+    "body": "ok"
+  },
+  "browser_dashboard": {
+    "battery": "B0006",
+    "completed_cycle": 60,
+    "forecast_soh_displayed": 81.5,
+    "remaining_cycles_displayed": 54
+  },
+  "browser_prediction": {
+    "capacity_ah": 1.6,
+    "measured_soh_displayed": 80.0,
+    "forecast_soh_displayed": 80.3,
+    "remaining_cycles_displayed": 52,
+    "message": "Saved-model inference completed."
+  },
+  "screenshots": [
+    "artifacts/screenshots/vercel-dashboard.png",
+    "artifacts/screenshots/vercel-prediction.png"
+  ],
+  "github_auto_deploy": "Not connected: private repository access unavailable to Vercel integration; deployment completed via authenticated CLI",
+  "aws_service": "Not modified; remains running with its approved charges"
+}

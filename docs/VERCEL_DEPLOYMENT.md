@@ -32,4 +32,11 @@ Use the URL returned by Vercel, verify `/_stcore/health`, open the Dashboard and
 
 Vercel Functions have duration and memory limits. Hobby currently has 2 GB memory and a 300-second maximum request duration; a long Streamlit session may reconnect and lose transient in-memory UI state. Containers can scale down when idle and will load artifacts again on a cold start. Do not claim unlimited persistent sessions. The beta may impose additional account-specific requirements.
 
-The existing AWS ECS service remains separate and continues incurring its approved charges. Moving to Vercel does not stop or delete AWS resources. Current Vercel status: prepared; authentication and live deployment verification pending.
+The existing AWS ECS service remains separate and continues incurring its approved charges. Moving to Vercel does not stop or delete AWS resources. Current Vercel status: deployed and verified at https://batterytwin.vercel.app. Container build succeeded, public health returned 200/ok, and a browser prediction using 1.60 Ah returned 80.3% next-cycle SOH and approximately 52 remaining cycles.
+
+
+## Verified publication
+
+GitHub: https://github.com/sasi835/batterytwin (private, main). Production: https://batterytwin.vercel.app. Deployment ID: `dpl_FcXydmZWeSyQ9V126krvDfXvT2CB`. The deployed application source revision is `5b1923f5137db48209f70012987561f6b31d147a`; later commits add publication evidence and screenshots. The Vercel build reported Container Runtime and stored the image in VCR. Its OCI builder ignores Docker HEALTHCHECK instructions, so deployment health was verified through the public Streamlit endpoint and actual browser inference.
+
+The deployment used the authenticated CLI. Vercel could not connect its GitHub integration to the private repository, so pushing future commits does not automatically redeploy. To enable that, grant the intended Vercel GitHub integration access to this specific private repository in your account, then connect it through the project Git settings. Alternatively, regenerate the staged package and redeploy with the CLI commands above. No repository visibility or GitHub access permissions were changed.

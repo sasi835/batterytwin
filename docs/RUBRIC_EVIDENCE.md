@@ -34,3 +34,5 @@ The user approved deploying to existing public Space `sasi468896/aml_cat`. The c
 The Space staging script publishes only the standalone BatteryTwin academic report. The complete personal lab record, its cover and the student's registration details are excluded.
 
 AWS deployment verified October 15, 2026: [BatteryTwin](http://3.238.69.149:7860). ECR image digest, healthy ECS task, container inference output, browser capacity-edit check and screenshots are recorded in `artifacts/results/aws_ecr_deployment.json`.
+
+Vercel is also deployed and verified: https://batterytwin.vercel.app. The full Streamlit Docker container built on Vercel and passed public health and browser prediction checks. Evidence: artifacts/results/vercel_deployment.json. Source code is pushed to private GitHub repository https://github.com/sasi835/batterytwin.

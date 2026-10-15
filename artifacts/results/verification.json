@@ -10,7 +10,7 @@
   "local_api": "Updated saved-model API and dashboard verified at http://127.0.0.1:8000",
   "docker": "Built and executed successfully in AWS CodeBuild; saved-model inference and Streamlit HTTP health checks passed. Image pushed to private ECR; ECS task RUNNING and HEALTHY.",
   "public_cloud": "AWS ECS Fargate verified at http://3.238.69.149:7860 on 2026-10-15T01:53:03.130170+00:00; dashboard and edited-capacity prediction checked in browser",
-  "public_repository": "Not published; no target provided",
+  "public_repository": "Private GitHub repository https://github.com/sasi835/batterytwin; main branch pushed and verified",
   "plots": 25,
   "browser_checks": [
     "Desktop dashboard at 1440x1000",
@@ -63,5 +63,6 @@
     "failures": 0,
     "errors": 0
   },
-  "aws_deployment_evidence": "artifacts/results/aws_ecr_deployment.json"
+  "aws_deployment_evidence": "artifacts/results/aws_ecr_deployment.json",
+  "vercel": "Full Streamlit container verified at https://batterytwin.vercel.app; health 200/ok and live 1.60 Ah prediction 80.3% SOH / 52 remaining cycles"
 }
