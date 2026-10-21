@@ -100,13 +100,13 @@
       "missing": []
     },
     {
-      "requirement": "Configuration and packaged source",
+      "requirement": "Configuration and modular source",
       "status": "Evidence present",
       "evidence": [
         "requirements.txt",
         "configs/config.yaml",
         "Dockerfile",
-        "scripts/package_project.py"
+        "src/data/feature_engineering.py"
       ],
       "missing": []
     },

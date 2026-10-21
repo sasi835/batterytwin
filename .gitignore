@@ -19,3 +19,25 @@ output/*
 !output/pdf/
 output/pdf/*
 !output/pdf/BatteryTwin_IEEE_Report.pdf
+
+# Local submission material and editable report copies
+/SUBMISSION.md
+/docs/SUBMISSION_CHECKLIST.md
+/scripts/package_project.py
+/scripts/build_lab_record.py
+/scripts/build_editable_lab_record.py
+/scripts/build_personal_ieee_report.py
+/scripts/build_personal_ieee_word.py
+*.zip
+*.docx
+
+# Editor, operating-system and temporary files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+~$*
+*.tmp
+*.bak
+*.swp

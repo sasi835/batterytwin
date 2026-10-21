@@ -16,7 +16,7 @@ def audit():
         ('Streamlit interface and Docker Space packaging',['streamlit_app.py','tests/test_streamlit.py','requirements-streamlit.txt','scripts/prepare_space.py','scripts/publish_space.py']),
         ('Reference GRU charge and Gaussian RUL adaptations',['models/soc_gru.pt','models/rul_gpr.pkl','artifacts/results/soc_benchmark.json','artifacts/results/gaussian_rul.json']),
         ('IEEE-style report, max 10 pages',['output/pdf/BatteryTwin_IEEE_Report.pdf']),
-        ('Configuration and packaged source',['requirements.txt','configs/config.yaml','Dockerfile','scripts/package_project.py']),
+        ('Configuration and modular source',['requirements.txt','configs/config.yaml','Dockerfile','src/data/feature_engineering.py']),
     ]
     items=[]
     for label,paths in groups:
