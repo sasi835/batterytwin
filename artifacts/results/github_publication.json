@@ -1,7 +1,11 @@
 {
   "repository_url": "https://github.com/sasi835/batterytwin",
-  "visibility": "private",
+  "visibility": "public",
   "branch": "main",
   "commit": "5b1923f5137db48209f70012987561f6b31d147a",
-  "push_verified": true
+  "push_verified": true,
+  "visibility_verified_on": "2026-10-21",
+  "submission_index": "SUBMISSION.md",
+  "report_pages": 8,
+  "commit_note": "The commit field identifies the original publication; use the main branch for the latest submission."
 }

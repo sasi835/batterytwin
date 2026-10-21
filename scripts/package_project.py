@@ -1,20 +1,22 @@
 """Produce a self-contained submission archive without virtual environments or secrets."""
 from pathlib import Path
-import os
+import subprocess
 from zipfile import ZipFile, ZIP_DEFLATED
 
 ROOT=Path(__file__).resolve().parents[1]
 output=ROOT/'output/BatteryTwin_CAT_II.zip'
-excluded={'.venv','node_modules','.git','__pycache__','.pytest_cache','tmp','huggingface-space'}
+excluded={'scripts/build_lab_record.py','scripts/build_editable_lab_record.py',
+          'output/pdf/BatteryTwin_IEEE_Report.pdf'}
+files=subprocess.check_output(['git','ls-files','-z'],cwd=ROOT).decode().split('\0')
+files=sorted(name for name in files if name and name not in excluded)
+for required in ['SUBMISSION.md','report/BatteryTwin_IEEE_Project_Report_SriRam_Sasi.pdf',
+                 'report/BatteryTwin_IEEE_Project_Report_SriRam_Sasi.docx']:
+    if required not in files or not (ROOT/required).is_file():
+        raise RuntimeError(f'Missing tracked deliverable: {required}')
+output=ROOT/'output/BatteryTwin_CAT_II_Submission.zip'
 with ZipFile(output,'w',ZIP_DEFLATED,compresslevel=6) as archive:
-    for directory,dirs,files in os.walk(ROOT):
-        dirs[:]=sorted(name for name in dirs if name not in excluded)
-        for name in sorted(files):
-            path=Path(directory)/name
-            relative=path.relative_to(ROOT)
-            if path.suffix=='.zip' or path.name=='.env' or path.suffix=='.part':
-                continue
-            archive.write(path,'BatteryTwin/'+relative.as_posix())
+    for name in files:
+        archive.write(ROOT/name,'BatteryTwin/'+name)
 with ZipFile(output) as archive:
     bad=archive.testzip()
     if bad:

@@ -54,8 +54,9 @@ def footer(canvas,doc):
     canvas.drawRightString(WIDTH-MARGIN,25,str(doc.page))
     canvas.restoreState()
 
-def report():
-    output=ROOT/'output/pdf/BatteryTwin_IEEE_Report.pdf'
+def report(output=None):
+    output=Path(output) if output else ROOT/'output/pdf/BatteryTwin_IEEE_Report.pdf'
+    output.parent.mkdir(parents=True,exist_ok=True)
     bench=pd.read_csv(ROOT/'artifacts/results/benchmark.csv')
     meta=json.loads((ROOT/'models/feature_schema.json').read_text())
     pca=json.loads((ROOT/'artifacts/results/pca.json').read_text())
@@ -64,17 +65,19 @@ def report():
     params=json.loads((ROOT/'artifacts/best_params.json').read_text())
     refs=json.loads((ROOT/'docs/references.json').read_text())
     doc=BaseDocTemplate(str(output),pagesize=A4,leftMargin=MARGIN,rightMargin=MARGIN,topMargin=42,bottomMargin=42,
-                        title='BatteryTwin: AI-Based EV Battery Health Monitoring',author='Academic project')
+                        title='BatteryTwin: AI-Based EV Battery Health Monitoring',author='SriRam Sasi M')
     frames=[Frame(MARGIN,42,COL,HEIGHT-85,id='left',leftPadding=0,rightPadding=0,topPadding=0,bottomPadding=0),
             Frame(MARGIN+COL+18,42,COL,HEIGHT-85,id='right',leftPadding=0,rightPadding=0,topPadding=0,bottomPadding=0)]
-    doc.addPageTemplates(PageTemplate(id='paper',frames=frames,onPage=footer))
+    first_frames=[Frame(MARGIN,HEIGHT-145,WIDTH-2*MARGIN,100,id='title',leftPadding=0,rightPadding=0,topPadding=0,bottomPadding=0),
+                  Frame(MARGIN,42,COL,HEIGHT-202,id='first-left',leftPadding=0,rightPadding=0,topPadding=0,bottomPadding=0),
+                  Frame(MARGIN+COL+18,42,COL,HEIGHT-202,id='first-right',leftPadding=0,rightPadding=0,topPadding=0,bottomPadding=0)]
+    doc.addPageTemplates([PageTemplate(id='first',frames=first_frames,onPage=footer,autoNextPageTemplate='paper'),
+                          PageTemplate(id='paper',frames=frames,onPage=footer)])
     pages=[]
     # Explicit column breaks keep the academic layout predictable and inspectable.
     pages.append(([
-      para('BatteryTwin: AI-Based EV Battery Health Monitoring and Anomaly Detection',TITLE),
-      para('M.Sc. Artificial Intelligence &amp; Machine Learning<br/>Advanced Machine Learning Lab - CAT II<br/>October 14, 2026',CAPTION),
       para('Abstract',HEAD),
-      para('BatteryTwin implements an end-to-end battery-health research pipeline using 636 measured discharge cycles from four NASA laboratory lithium-ion cells. Causal cycle features support next-cycle state-of-health (SOH) forecasting with linear regression, Random Forest, XGBoost, LSTM and GRU models. Battery-held-out validation controls hyperparameter optimization and model selection. PCA, SHAP explanations, experiment logs and residual analysis make results inspectable. On 160 held-out B0006 forecasts, persistence achieves 0.720 percentage-point MAE, beating the learned models in the main benchmark. Random Forest, selected by validation MAE, yields 1.682 test MAE. An independently implemented two-lag linear baseline improves to 0.684 MAE. Exploratory remaining-useful-life models and unsupervised anomaly scores accompany the forecasts. A Streamlit dashboard and validated FastAPI backend load saved artifacts. Docker Space configuration is provided; public hosting awaits a permitted credential. The small cell sample, unlabeled anomalies and one uncensored RUL training cell limit generalization. The work demonstrates reproducible comparison rather than a claim of deep-learning superiority.'),
+      para('BatteryTwin implements an end-to-end battery-health research pipeline using 636 measured discharge cycles from four NASA laboratory lithium-ion cells. Causal cycle features support next-cycle state-of-health (SOH) forecasting with linear regression, Random Forest, XGBoost, LSTM and GRU models. Battery-held-out validation controls hyperparameter optimization and model selection. PCA, SHAP explanations, experiment logs and residual analysis make results inspectable. On 160 held-out B0006 forecasts, persistence achieves 0.720 percentage-point MAE, beating the learned models in the main benchmark. Random Forest, selected by validation MAE, yields 1.682 test MAE. An independently implemented two-lag linear baseline improves to 0.684 MAE. Exploratory remaining-useful-life models and unsupervised anomaly scores accompany the forecasts. Streamlit and FastAPI load saved artifacts; Docker deployment was verified on AWS ECS and Vercel. The small cell sample, unlabeled anomalies and one uncensored RUL training cell limit generalization. The work demonstrates reproducible comparison rather than a claim of deep-learning superiority.'),
       para('Index Terms - battery degradation, SOH, RUL, LSTM, XGBoost, explainability, MLOps.',SMALL),
       para('I. INTRODUCTION',HEAD),
       para('Battery capacity changes with repeated use, making health monitoring and maintenance planning useful research tasks. Laboratory measurements allow reproducible experiments, but EV packs introduce different thermal, electrical and operational conditions. BatteryTwin therefore treats the EV setting as motivation and evaluates only laboratory-cell forecasting.'),
@@ -174,13 +177,14 @@ def report():
     pages.append(([
       para('XIV. CONTAINERIZATION AND DEPLOYMENT',HEAD),
       para('The primary Dockerfile serves Streamlit from Python 3.12 on port 7860 as UID 1000. Saved-artifact preflight runs before launch; /_stcore/health checks server readiness. Trained models, processed examples, plots and the report are bundled. Raw data, credentials and virtual environments are excluded. Compose maps host port 8501. Dockerfile.api retains the original API container.'),
-      para('A runtime allowlist and Docker Space README metadata are staged for the user-approved sassy69/batterytwin target. The authenticated Hugging Face API rejected Space creation with HTTP 403: the fine-grained credential lacks creation permission. No live deployment is claimed. Local Docker Desktop also lacks a running engine. Cloud publication awaits a permitted credential; verification records retain both blockers.'),
+      para('Deployment records dated October 15, 2026 confirm successful Docker builds and saved-model inference. AWS CodeBuild built and tested the image; private Amazon ECR stores it and ECS Fargate runs the service. The complete Streamlit container was also built and deployed using Vercel Container Runtime. Public HTTP health, dashboard loading and a 1.60 Ah input were verified; the latter returned 80.3% next-cycle SOH and about 52 remaining cycles.'),
+      para('Production application: <link href="https://batterytwin.vercel.app" color="#356648">https://batterytwin.vercel.app</link><br/>Source repository (private): <link href="https://github.com/sasi835/batterytwin" color="#356648">https://github.com/sasi835/batterytwin</link>. Evidence is retained in vercel_deployment.json and aws_ecr_deployment.json. Vercel duration limits can interrupt long sessions. The separate Hugging Face Space upload remains blocked at runtime by its hardware/plan restriction.',SMALL),
       para('XV. CONCLUSION AND FUTURE SCOPE',HEAD),
       para('BatteryTwin demonstrates a working advanced-ML lifecycle with genuine data, modular training, optimization, explainability, error analysis and saved-model serving. Its most useful empirical result is that temporal baselines outperform the deep sequence models in this small next-cycle experiment. This finding is retained rather than hidden behind a dashboard.'),
       para('The selected forest is a validation-selected learned-model example, not evidence of test superiority. RUL is exploratory and anomaly scores are unlabeled distribution novelty. The system does not certify EV pack safety or predict physical fault types.'),
       para('Future scope includes additional cells and operating regimes, repeated battery-held-out evaluation, recursive multi-horizon forecasting, domain adaptation to pack telemetry, censored RUL learning, independent uncertainty calibration, authenticated device ingestion and labeled-fault experiments.'),
       para('Submission status',HEAD),
-      para('Source, configuration, fitted artifacts, plots, notebooks, tests and this report are included. Author/roll-number details, a verified public GitHub URL and a live deployment URL must be added before final academic submission. The PDF is a seven-page IEEE-style academic report; venue-specific IEEE templates are not claimed.')
+      para('Source, configuration, fitted artifacts, plots, notebooks, tests and this report are included. Student identity appears on the cover and author block. The GitHub repository is private; access must be provided for code review. Public application and recorded deployment evidence accompany this IEEE-style academic report.')
     ],[
       para('REFERENCES',HEAD),
       *[para(f'[{r["id"]}] {html.escape(r["ieee"])}<br/><link href="{r["url"]}" color="#356648">{html.escape(r["url"])}</link>',SMALL) for r in refs],
@@ -208,9 +212,12 @@ def report():
       *fig('soc_discharge','Fig. 14. Derived charge reference and trained predictions on a measured discharge.',155),
       para('D. Health-category diagnostics and coverage',HEAD),
       *fig('health_confusion_matrix','Fig. 15. Capacity-derived categories, not physical fault labels.',145),
-      para('Confusion matrices and ROC/PR plots use measured-capacity-derived categories and continuous next-cycle SOH scores. They do not evaluate physical faults or calibrated class probabilities. Twenty-five analytical plots, extension API tests and a requirement evidence inventory accompany the project. Docker execution, public cloud/repository links and student identity remain pending.',SMALL)
+      para('Confusion matrices and ROC/PR plots use measured-capacity-derived categories and continuous next-cycle SOH scores. They do not evaluate physical faults or calibrated class probabilities. Twenty-five analytical plots and 37 application tests support the implementation. Eight additional deployment-guard tests pass. Docker execution and public Vercel application inference are verified in saved deployment records; the source repository is private.',SMALL)
     ]))
     story=[]
+    story.extend([para('BatteryTwin: AI-Based EV Battery Health Monitoring and Anomaly Detection',TITLE),
+                  para('SriRam Sasi M<br/>Department of M.Sc. Artificial Intelligence and Machine Learning<br/>Coimbatore Institute of Technology, Coimbatore, India',
+                       ParagraphStyle('Author',fontName='Times-Roman',fontSize=10,leading=12,alignment=TA_CENTER,spaceAfter=6)),FrameBreak()])
     for i,(left,right) in enumerate(pages):
         if i:
             story.append(PageBreak())
